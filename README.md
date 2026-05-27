@@ -1,5 +1,5 @@
 # 🌸 Flowers — Build a Bouquet, Send Some Love
-Flowers is a heartfelt web experience that lets you design a custom flower bouquet and pair it with a personal letter for someone you care about. Whether it's a birthday, an anniversary, or just a "thinking of you" moment — Flowers helps you express it beautifully.
+Flowers is a heartfelt web experience that lets you design a custom flower bouquet and pair it with a personal letter for someone you care about. Whether it's a birthday, an anniversary, or just a "thinking of you" moment Flowers helps you express it beautifully.
 
 # 🌼 What It Does
 
