@@ -25,7 +25,7 @@ Prerequisites
 All you need is a modern web browser — no installs required.
 Run Locally
 bash# 1. Clone the repository
-git clone https://github.com/your-username/flowers.git
+git clone https:/Nottoishenshu/github.com//flowers.git
 
 -  2. Navigate into the project folder
 cd Flowers
@@ -35,7 +35,7 @@ cd Flowers
 - Open the website in your browser.
 - Pick your flowers from the available selection.
 - Customize colors and arrangement to your liking.
-- Write a letter — a short note from the heart.
+- Write a letter a short note from the heart.
 - Preview your finished bouquet and letter together.
 - Share it with your loved one! 💌
 
