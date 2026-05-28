@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send via Gmail</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="main-content">
+    <h1 class="title">Send your Flowerlet bouquet</h1>
+    <p class="description">Review your selected flower and your message, then open Gmail to send it.</p>
+
+    <div class="chosen-panel">
+      <div class="chosen-label">Selected flower</div>
+      <div id="selectedFlowerName" class="chosen-flower">Loading...</div>
+      <img id="selectedFlowerImage" class="flower-image" src="" alt="Selected flower" style="display:none;">
+    </div>
+
+    <section class="letter-section">
+      <label class="letter-label" for="recipient-email">Recipient email</label>
+      <input id="recipient-email" type="email" class="email-input" placeholder="recipient@gmail.com">
+
+      <label class="letter-label" for="preview-subject">Email preview</label>
+      <div id="preview-subject" class="preview-field"></div>
+      <textarea id="preview-letter" rows="8" readonly></textarea>
+    </section>
+
+    <div class="button-link-wrapper">
+      <button class="send-button" type="button" onclick="sendWithGmail()">Open Gmail Compose</button>
+      <button class="send-button" type="button" onclick="goBack()">Back to Selection</button>
+    </div>
+
+    <p id="status-message" class="description"></p>
+  </main>
+
+  <script>
+    function loadSavedSelection() {
+      const flowerName = localStorage.getItem('flowerletSelectedName');
+      const flowerImage = localStorage.getItem('flowerletSelectedImage');
+      const letterText = localStorage.getItem('flowerletSelectedLetter');
+
+      if (!flowerName) {
+        document.getElementById('selectedFlowerName').textContent = 'No selection found.';
+        document.getElementById('preview-letter').value = 'Please return to the selection page and choose a flower first.';
+        document.getElementById('status-message').textContent = 'No saved selection is available.';
+        return;
+      }
+
+      document.getElementById('selectedFlowerName').textContent = flowerName;
+      document.getElementById('preview-subject').textContent = `Subject: Flowerlet bouquet: ${flowerName}`;
+      document.getElementById('preview-letter').value = letterText || 'No message entered yet.';
+
+      if (flowerImage) {
+        const imageElement = document.getElementById('selectedFlowerImage');
+        imageElement.src = flowerImage;
+        imageElement.alt = flowerName;
+        imageElement.style.display = 'block';
+      }
+
+      document.getElementById('status-message').textContent = 'Enter the recipient email and click the button to open Gmail with your message.';
+    }
+
+    function encodeMailto(text) {
+      return encodeURIComponent(text).replace(/%0A/g, '%0D%0A');
+    }
+
+    function sendWithGmail() {
+      const recipient = document.getElementById('recipient-email').value.trim();
+      if (!recipient) {
+        alert('Please enter a recipient email address.');
+        return;
+      }
+
+      const flowerName = localStorage.getItem('flowerletSelectedName') || 'Flowerlet bouquet';
+      const letterText = localStorage.getItem('flowerletSelectedLetter') || '';
+      const flowerImage = localStorage.getItem('flowerletSelectedImage') || '';
+
+      const subject = `Flowerlet bouquet: ${flowerName}`;
+      let bodyText = 'Hello,\r\n\r\n';
+      bodyText += `I chose the "${flowerName}" from Flowerlet.\r\n\r\n`;
+      bodyText += `Message:\r\n${letterText || '(No message entered)'}\r\n\r\n`;
+      if (flowerImage) {
+        bodyText += `Flower image: ${flowerImage}\r\n\r\n`;
+      }
+      bodyText += 'Warm wishes,\r\nFlowerlet';
+
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipient)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+      window.open(gmailUrl, '_blank');
+    }
+
+    function goBack() {
+      window.location.href = 'selection.html';
+    }
+
+    loadSavedSelection();
+  </script>
+</body>
+</html>

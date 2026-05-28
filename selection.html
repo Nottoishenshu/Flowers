@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selection</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="main-content">
+    <h1 class="title">Choose your flowers to include in the bouquet.</h1>
+    <p class="description">
+      Welcome to the Selection page! Explore your options and pick the perfect flowers for your bouquet.
+    </p>
+
+    <div class="selection-container">
+      <div class="image-card" id="card-1" data-name="Purple Gerbera">
+        <img src="https://img.freepik.com/premium-photo/purple-gerbera-daisy-isolated-white-background-beautiful-gerbera-daisy-flower_140916-41463.jpg?w=1060" alt="Purple Gerbera">
+        <button class="select-btn" type="button" onclick="toggleSelect('card-1')">Select</button>
+      </div>
+
+      <div class="image-card" id="card-2" data-name="Pink Rose">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.hNkyh3FJQyNJT5Jn8Y9W2wHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Pink Rose">
+        <button class="select-btn" type="button" onclick="toggleSelect('card-2')">Select</button>
+      </div>
+
+      <div class="image-card" id="card-3" data-name="Yellow Tulip">
+        <img src="https://img.freepik.com/premium-photo/yellow-white-tulip-with-white-background_962508-27664.jpg?w=2000" alt="Yellow Tulip">
+        <button class="select-btn" type="button" onclick="toggleSelect('card-3')">Select</button>
+      </div>
+
+      <div class="image-card" id="card-4" data-name="White Lily">
+        <img src="https://static.vecteezy.com/system/resources/previews/046/980/749/non_2x/a-pure-white-lily-isolated-on-a-transparent-background-free-png.png" alt="White Lily">
+        <button class="select-btn" type="button" onclick="toggleSelect('card-4')">Select</button>
+      </div>
+
+      <div class="image-card" id="card-5" data-name="Pink Peony">
+        <img src="https://thumbs.dreamstime.com/b/pink-peony-isolated-white-background-beautiful-94402917.jpg" alt="Pink Peony">
+        <button class="select-btn" type="button" onclick="toggleSelect('card-5')">Select</button>
+      </div>
+
+      <div class="image-card" id="card-6" data-name="Blue Orchid">
+        <img src="https://tse4.mm.bing.net/th/id/OIP._Kq0bjpX4NlPbYqRWrwhAAHaKX?w=2928&h=4099&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Blue Orchid">
+        <button class="select-btn" type="button" onclick="toggleSelect('card-6')">Select</button>
+      </div>
+    </div>
+
+    <div class="chosen-panel">
+      <div class="chosen-label">Selected flower:</div>
+      <div class="chosen-flower">None selected yet</div>
+      <img id="chosen-flower-image" class="flower-image" src="" alt="Selected flower" style="display:none;">
+    </div>
+
+    <section class="letter-section">
+      <label class="letter-label" for="letter-text">Write your letter</label>
+      <textarea id="letter-text" rows="6" placeholder="Write a message to include with your bouquet..."></textarea>
+    </section>
+
+  </main>
+
+  <script>
+    function toggleSelect(cardId) {
+      const previous = document.querySelector('.image-card.selected');
+      if (previous && previous.id !== cardId) {
+        previous.classList.remove('selected');
+      }
+      const card = document.getElementById(cardId);
+      if (card) {
+        card.classList.toggle('selected');
+        const isSelected = card.classList.contains('selected');
+        updateChosenFlower(isSelected ? card.dataset.name : null, isSelected ? card.querySelector('img')?.src : '');
+      }
+    }
+
+    function updateChosenFlower(name, imageSrc) {
+      const chosen = document.querySelector('.chosen-flower');
+      const image = document.getElementById('chosen-flower-image');
+      chosen.textContent = name ? name : 'None selected yet';
+      if (name && imageSrc) {
+        image.src = imageSrc;
+        image.alt = name;
+        image.style.display = 'block';
+      } else {
+        image.style.display = 'none';
+      }
+    }
+
+    function saveSelectionAndSend() {
+      const selected = document.querySelector('.image-card.selected');
+      if (!selected) {
+        alert('Please select a flower before sending.');
+        return;
+      }
+
+      const letterText = document.getElementById('letter-text').value.trim();
+      const selectedImage = selected.querySelector('img')?.src || '';
+
+      localStorage.setItem('flowerletSelectedName', selected.dataset.name);
+      localStorage.setItem('flowerletSelectedImage', selectedImage);
+      localStorage.setItem('flowerletSelectedLetter', letterText);
+
+      window.location.href = 'sendlet.html';
+    }
+  </script>
+  <div class="button-link-wrapper send-button-fixed">
+    <button class="send-button" type="button" onclick="saveSelectionAndSend()">Send via Gmail</button>
+  </div>
+</body>
+</html>
