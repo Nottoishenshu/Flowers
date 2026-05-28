@@ -14,11 +14,7 @@ Flowers is a heartfelt web experience that lets you design a custom flower bouqu
 - Color and style customization for each flower
 - Personal letter/note editor alongside the bouquet
 - Clean, romantic, and responsive UI
-- Lightweight — no frameworks, just pure HTML, CSS, and JavaScript
-
-
-# 🛠️ Tech Stack
-TechnologyPurposeHTML5Page structure and layoutCSS3Styling, animations, and responsive designJavaScript (Vanilla)Interactivity and bouquet/letter logic
+- Lightweight — no frameworks, just pure HTML, and CSS
 
 # 🚀 Getting Started
 Prerequisites
