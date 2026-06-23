@@ -1,14 +1,14 @@
-# 🌸 Flowers — Build a Bouquet, Send Some Love
+#  Flowers — Build a Bouquet, Send Some Love
 Flowers is a heartfelt web experience that lets you design a custom flower bouquet and pair it with a personal letter for someone you care about. Whether it's a birthday, an anniversary, or just a "thinking of you" moment Flowers helps you express it beautifully.
 
-# 🌼 What It Does
+#  What It Does
 
-- 💐 Build Your Bouquet — Choose from a variety of flowers, mix and match colors, and arrange your perfect bouquet.
-- ✉️ Write a Letter — Add a short personal message to accompany your bouquet.
-- 🎁 Share the Love — Send or present your creation to a loved one in a beautiful, memorable way.
+-  Build Your Bouquet — Choose from a variety of flowers, mix and match colors, and arrange your perfect bouquet.
+- Write a Letter — Add a short personal message to accompany your bouquet.
+-  Share the Love — Send or present your creation to a loved one in a beautiful, memorable way.
 
 
-# ✨ Features
+#  Features
 
 - Interactive bouquet builder with a visual flower selection interface
 - Color and style customization for each flower
@@ -16,7 +16,7 @@ Flowers is a heartfelt web experience that lets you design a custom flower bouqu
 - Clean, romantic, and responsive UI
 - Lightweight — no frameworks, just pure HTML, and CSS
 
-# 🚀 Getting Started
+#  Getting Started
 Prerequisites
 All you need is a modern web browser — no installs required.
 Run Locally
@@ -26,7 +26,7 @@ git clone https:/Nottoishenshu/github.com//flowers.git
 -  2. Navigate into the project folder
 cd Flowers
 
-# 🌹 How to Use
+# How to Use
 
 - Open the website in your browser.
 - Pick your flowers from the available selection.
@@ -35,7 +35,7 @@ cd Flowers
 - Preview your finished bouquet and letter together.
 - Share it with your loved one! 💌
 
-# 🤝 Contributing
+#  Contributing
 Contributions are warmly welcome! If you have ideas for new flowers, features, or improvements:
 
 - Fork the repository
@@ -44,11 +44,7 @@ Contributions are warmly welcome! If you have ideas for new flowers, features, o
 - Push to the branch (git push origin feature/your-idea)
 - Open a Pull Request
 
-
-📄 License
-This project is open source and available under the MIT License.
-
-💛 Made with love
+ Made with love
 
 "Flowers are the music of the ground, from earth's lips spoken without sound."
 — Edwin Curran
